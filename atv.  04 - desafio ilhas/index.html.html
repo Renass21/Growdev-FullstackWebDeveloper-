@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=script, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var saque = 72.00;
+var valorInicial = saque;
+var saqueN50 = 0;
+var saqueN10 = 0;
+var saqueN5 = 0;
+var saqueN1 = 0;
+
+while(saque != 0){
+    if(saque >= 50.00){
+        saqueN50++;
+        saque = saque - 50;
+    } else if (saque >= 10){
+        saqueN10++;
+        saque = saque - 10;
+    } else if (saque >=5){
+        saqueN5++;
+        saque = saque - 5;
+    } else {
+        saqueN1++;
+        saque = saque - 1;
+    }
+}
+console.log(`O valor solicitado foi ${valorInicial}, o usuário recebeu ${saqueN50} notas de GC$ de 50, ${saqueN10} notas de GC$ de 10, ${saqueN5} notas de GC$ 5 e ${saqueN1} notas de GC$ de 1.`);
+
+    </script>
+</body>
+</html>
+
