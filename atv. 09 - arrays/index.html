@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+/*
+4.Crie um cadastro de pessoas onde o usuário informe o nome, idade
+e se está trabalhando ou não, se a pessoa estiver trabalhando
+pergunte para ele o salário que está ganhando. Para cada pessoa
+cadastrada, pergunte ao usuário se ele deseja continuar
+cadastrando ou não. No final, mostre as pessoas que estão
+desempregadas, as pessoas que estão empregadas separadas
+pelas que ganham mais que 2500 e menos que 2500.
+*/
+
+let desempregados = [];
+let empregadosMenos = [];
+let empregadosMais = [];
+let continua = 's';
+
+//loop cadastro até digitar "não"
+do {
+	//informar nome, idade, empregado
+  let usuario = {
+  	nome: "",
+    idade: 0,
+    empregado: 'n',
+    salario: 0
+  };
+  
+  usuario.nome = prompt("Nome do usuário: ");
+  usuario.idade = Number(prompt("Idade do usuário: "));
+  usuario.empregado = prompt("Está empregado atualmente? (s/n)");
+  
+  //se empregado informar salario
+  if (usuario.empregado === "s")
+  {
+	  usuario.salario = Number(prompt("Qual é o salário? "));
+  }
+  
+  if (usuario.empregado === "n")
+  	desempregados.push(usuario);
+  else
+  {
+  	if (usuario.salario <= 2500)
+    	empregadosMenos.push(usuario)
+    else
+    	empregadosMais.push(usuario)
+  }
+  
+  //prompt se deseja continuar o cadastro
+  continua = prompt("Deseja cadastrar mais usuários? (s/n)");
+  
+} while (continua === 's');
+
+//imprimir pessoas desempregadas
+document.write("<strong>Pessoas desempregadas:</strong><br>");
+for(let pessoa of desempregados)
+{
+	document.write(`Nome: ${pessoa.nome}, Idade: ${pessoa.idade} <br>`);
+}
+
+//imprimir pessoas empregadas com salários menores que 2500:
+document.write("<strong>Pessoas empregadas com salários menores que 2500:</strong><br>");
+for (let pessoa of empregadosMenos){
+	document.write(`Nome: ${pessoa.nome}, Idade: ${pessoa.idade}, Salário: R$${pessoa.salario} <br>`)
+}
+
+//imprimir empregadas com salários maiores que 2500:
+document.write("<strong>Pessoas empregadas com salários maiores que 2500:</strong><br>");
+for (let pessoa of empregadosMais){
+	document.write(`Nome: ${pessoa.nome}, Idade: ${pessoa.idade}, Salário: R$${pessoa.salario} <br>`)
+}
+
+
+    </script>
+</head>
+<body> 
+</body>
+</html>
